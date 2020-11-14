@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<title>Test Website</title>
+<head/><body>
+
+<!-- Header -->
+<h1>WELCOME</h1>
+
+<!-- Header 2 w/changed font -->
+<h2>---HTML Toolbox---</h2>
+
+<!-- An Image gif -->
+<h3>An image/gif -  </h3>
+<img src="nedry.gif" alt="Jurrassic park" width="500" height="500">
+
+<!-- A Link -->
+<h3>A link - </h3>
+<a href="https://shipley.ac.uk">Click here</a>
+
+<!-- A Button -->
+<h3>A button - </h3>
+<button>Click me</button>
+
+<!-- An unordered HTML list  -->
+<h3>An Unordered HTML List - </h3>
+
+<ul>
+  <li>Fetch</li>
+  <li>Decode</li>
+  <li>Execute</li>
+</ul>  
+
+<!-- An Ordered HTML list -->
+<h3>An Ordered HTML List - </h3>
+
+<ol>
+  <li>Fetch</li>
+  <li>Decode</li>
+  <li>Execute</li>
+</ol> 
+
+<!-- A table -->
+
+<h3>Basic HTML Table</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Nathan</td>
+    <td>Hannah</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>Jeff</td>
+    <td>Smith</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+  </tr>
+</table>
+
+
+<!-- Geolocation -->
+<h3>Geolocation</h3>
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Location</button>
+
+<p id="TEST"></p>
+
+<script>
+var x = document.getElementById("TEST");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+
+<!-- An Audio clip -->
+<h3>An Audio Clip - </h3>
+<audio controls>
+  <source src="universal.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+
+<!-- Drag and Drop -->
+<h3>Drag and drop - </h3>
+
+<style>
+#div1 {
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="smile.gif" draggable="true" ondragstart="drag(event)" width="336" height="336">
+
+</body>
+</html>
+
