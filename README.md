@@ -1,4 +1,4 @@
-# github-upload
+# Website
 
 
 Personal website using a Web template using CSS HTML JavaScript
